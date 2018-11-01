@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="MyFirstApp">
+    <head>
+        <meta charset="utf-8">
+        <title> RockJS Framework®</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta name="apple-mobile-Web-app-title" content="RockJS Framework®">
+        <meta name="author" content="RockJS Framework®|Focus On Services">
+        <meta name="keywords" content="Soporte tecnico,it,ti,soluciones,datacenter,consultoria,centro de datos,empresarial,administracion,proyectos,soporte multimarca, Focus On Services es un proveedor global de servicios con presencia en más de 16 países de Latinoamérica con un amplio portafolio de servicios en Tecnologías de Información y con los mejores tiempos de respuesta de la industria, Software, Desarrollo, app, apps, android, IOS, 
+              Transformación digital, Software on demand, Software a la medida, Servicios de desarrollo de software, fabrica de software, Progress, 4GL, ABL, app server, PAS, Servicios Web Síncronos,protocolos REST JSON XML">
+        <meta name="description" content="La forma más rápida de adoptar la Transformación Digital">
+        <!-- Favicon -->
+        <link href="asset/images/favicon.ico" rel="icon">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="asset/css/bootstrap.min.css">
+        <!-- rockjs personalite CSS -->
+        <link rel="stylesheet" href="asset/css/rockjs.css">
+        <!-- ICON personalite CSS -->
+        <link rel="stylesheet" href="asset/css/pe-icon-7-stroke/css/pe-icon-7-stroke.css">
+        <link rel="stylesheet" href="asset/css/pe-icon-7-stroke/css/helper.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Font personalite CSS -->
+        <link href="https://fonts.googleapis.com/css?family=Sniglet:400,500,700|Metric-Light:400,900" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" />
+        <!-- JQuery Export datatable csv,excel pdf -->
+        <link rel="stylesheet" href="asset/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="asset/css/buttons.dataTables.min.css">
+        <!-- Draggable personalite CSS -->
+        <link rel="stylesheet" href="asset/draggable-ui/gridstack.css"/>
+        <style>
+            body {
+                position: relative;
+                background-image: url(asset/images/3.jpg);
+                background-size: cover;
+                background-attachment: fixed;
+                padding: 0px 0;
+            }
+            .card {
+                position: relative;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                min-width: 0;
+                word-wrap: break-word;
+                background-color: #ffffff8c;
+                background-clip: border-box;
+                border: 1px solid rgba(0,0,0,.125);
+                border-radius: .25rem;
+            }
+            .table-primary, .table-primary>td, .table-primary>th {
+                background-color: #b8daff82;
+            }
+            .sidenav {
+                height: 100%;
+                width: 0;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                left: 0;
+                background-color: #00568938;
+                overflow-x: hidden;
+                transition: 0.5s;
+                padding-top: 60px;
+            }
+            .bg-light {
+                background-color: #f8f9fa8c!important;
+            }
+            .container-fluid {
+                width: 100%;
+                margin-right: auto;
+                margin-left: auto;
+                padding-right: 0px;
+                padding-left: 0px;
+            }
+            .text-success {
+                color: #00c9d0!important;
+            }
+
+        </style>
+    </head>
+    <body ng-controller="FirstController"> 
+        <div class="loader"></div>
+        <div id="mySidenav" class="sidenav" style="margin-top:40px">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="detail.html">Home</a>
+            <a href="profile.html">Ajustes</a>
+            <a href="index.html">Salir</a>
+        </div>
+        <div id="main">
+            <div class=" navbar bg-light fixed-top" style="color: #005689 !important; padding-bottom: 0; padding-top: 0;">
+                <div class="float-left mn-left" ng-repeat="cliente in posts">
+                    <span class="menuicon" onclick="openNav()" style="text-align: center; font-size: 30px; padding-left: 15px;">☰</span>
+                    <a class="navbar-brand" href="#">&nbsp&nbsp&nbsp<img src="asset/images/sniglet.png" width="10%" alt="RockJS Framework" style="vertical-align: baseline !important;"></a>
+                    <!--a class="navbar-brand" href="#">{{cliente.Nombre}}</a-->
+                    <small style="font-size: 10px"class="navbar-brand">{{cliente.Nombre}}</small>
+                </div>
+
+                <div class="float-right mn-rigth">
+                    Focus On Services&nbsp&nbsp&nbsp
+
+                    <img src="asset/images/img_avatar3.png" title="" class="rounded-circle" style="width:30px; vertical-align: baseline !important;">
+                </div>
+            </div>
+            <div class="container-fluid" style="margin-top:47px">
+                <p id="result"> </p>
+                <div id="header"></div>
+                <div class="loader"></div>
+                <div class="panel">
+                    <div class="card panel-heading">
+                        <div class="card-header">
+                            <div class="d-flex justify-content-between align-items-end">
+                                <h4 class="text-light">Pagos</h4>
+                            </div>
+                        </div>
+                        <div class="card-body" ng-repeat="cliente in posts">
+                            <h6>Datos de la cuenta</h6>
+                            <form>
+                                <div class="form-group">
+                                    <label for="Nombre">Nombre</label>
+                                    <input type="text" class="form-control" id="Nombre" name="Nombre" value="{{cliente.Nombre}}"placeholder="Enter Nombre" required>
+                                    <div class="help-block with-errors text-danger"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Email">Email</label>
+                                    <input type="text" class="form-control" id="Email" name="Email" value="{{cliente.Email}}" placeholder="Enter Email" required>
+                                    <div class="help-block with-errors text-danger"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Apertura">Fecha de apertura</label>
+                                    <input type="text" class="form-control" id="Apertura" name="Apertura" value="{{cliente.FechaApertura}}" placeholder="Enter Apertura" required>
+                                    <div class="help-block with-errors text-danger"></div>
+                                </div>
+                                <hr>
+                                <h6>Forma de Pago</h6>
+                                <div class="row">
+                                    <div class="col">
+                                        <label>Accepted Cards</label>
+                                    </div>
+                                    <div class="col">
+                                        <div class="icon-container">
+                                            <i class="fa fa-cc-visa" style="color:navy;"></i>
+                                            <i class="fa fa-cc-amex" style="color:blue;"></i>
+                                            <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                                            <i class="fa fa-cc-discover" style="color:orange;"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="tar">Número de Tarjeta</label>
+                                    <input type="text" class="form-control" id="tar" name="tar" placeholder=" Número de Tarjeta" value="*************4477" required>
+                                    <div class="help-block with-errors text-danger"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="tar">Fecha de vencimiento (MM/AA)</label>
+                                    <input type="text" class="form-control" id="tar" name="tar" placeholder=" (MM/AA)" value="12/22" required>
+                                    <div class="help-block with-errors text-danger"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="tar">Código de seguridad (CVV)</label>
+                                    <input type="text" class="form-control" id="tar" name="tar" placeholder=" (CVV)" required>
+                                    <div class="help-block with-errors text-danger"></div>
+                                </div>
+                                <div id="detail-payment" style="background-color: #2b4ae230;">
+                                    <div class="card">
+                                        <div class="card-header">Payment detail</div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col"><strong># de pago</strong></div>
+                                                <div class="col"><strong>Monto</strong></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col"><center>1</center></div>
+                                                <div class="col">$500</div>
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col"><strong>Total</strong></div>
+                                                <div class="col">$500</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <hr>
+                                <i>
+                                    * Los pagos se procesarán internacionalmente.<br>
+                                    Es posible que se apliquen comisiones bancarias adicionales.
+                                </i>
+                                <button type="button" class="btn btn-primary btn-block">Continue to checkout</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="clearfix">
+            <span class="float-right text-light">RockJS 1.0.0 <i class="pe-7s-science"></i></span>
+        </div>
+        <!-- Side menu JS -->
+        <script>
+                    function openNav() {
+                        document.getElementById("mySidenav").style.width = "150px";
+                        document.getElementById("main").style.marginLeft = "150px";
+                    }
+
+                    function closeNav() {
+                        document.getElementById("mySidenav").style.width = "0";
+                        document.getElementById("main").style.marginLeft = "0";
+                    }
+        </script>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="asset/js/jquery-3.2.1.slim.min.js"></script>
+        <script src="asset/js/popper.min.js"></script>
+        <script src="asset/js/bootstrap.min.js"></script>
+
+        <!-- JQuery Export datatable csv,excel pdf -->
+        <script src="asset/js/jquery-1.12.4.js"></script>
+        <script src="asset/js/jquery.dataTables.min.js"></script>
+        <script src="asset/js/dataTables.buttons.min.js"></script>
+        <script src="asset/js/jszip.min.js"></script>
+        <script src="asset/js/pdfmake.min.js"></script>
+        <script src="asset/js/vfs_fonts.js"></script>
+        <script src="asset/js/buttons.html5.min.js"></script>
+        <script>
+                    $(document).ready(function () {
+                        $('#example').DataTable();
+                    });
+        </script>
+        <!-- Loader GIF JS -->
+        <script type="text/javascript" src="asset/js/loader.js"></script>
+
+        <!-- Web Service Login -->
+        <script src="asset/js/validator.min.js"></script>
+        <script src="asset/js/form-scripts.js"></script>
+
+        <!-- Draggable JS -->
+        <script src="asset/draggable-ui/jquery-ui.js"></script>
+        <script src="asset/draggable-ui/lodash.js"></script>
+        <script src="asset/draggable-ui/gridstack.js"></script>
+        <script src="asset/draggable-ui/gridstack.jQueryUI.js"></script>
+        <script src="asset/draggable-ui/jquery.ui.touch-punch.js"></script>
+        <script>
+                    $(function () {
+                        var options = {
+                            alwaysShowResizeHandle: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+                        };
+                        $('.grid-stack').gridstack(options);
+                    });
+        </script>
+        <script src="asset/js/angular.min.js"></script>
+        <script src="asset/js/controller.js"></script>
+    </body>
+</html>

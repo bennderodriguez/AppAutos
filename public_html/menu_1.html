@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="asset/js/jquery-1.12.4.js"></script>
+        <script>
+            $(document).ready(function () {
+                $("#header").load("headers.html", function (responseTxt, statusTxt, xhr) {});
+                $("#footer").load("footer.html", function (responseTxt, statusTxt, xhr) {});
+
+            });
+        </script>
+    </head>
+    <body>
+        <p id="result"> </p>
+        <div id="header"></div>
+        <div class="loader"></div>
+
+        <div id="rockjsDragable" >
+            <div class="panel">
+                <div class="card panel-heading">
+                    <div class="card-header">
+                        <div class="d-flex justify-content-between align-items-end">
+                            <h4>User List</h4>
+                            <button type="button" class="btn btn-outline-primary" id="getAllUser" onclick="louout()">Get Users</button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div id="demo" class="table-responsive-sm"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="footer">
+            <script>
+                // Check browser support
+                if (typeof (Storage) !== "undefined") {
+                    var jwt = localStorage.getItem("jwt");
+                    if (jwt == "" || jwt == null)
+                    {
+                        location.href = "index.html";
+                    } else {
+                        //document.getElementById("result").innerHTML = jwt;
+                        //console.log(jwt);
+                    }
+                } else {
+                    document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+                }
+
+                function louout() {
+                    localStorage.clear();
+                    location.href = "index.html";
+                }
+            </script>
+            <script>
+               
+                var obj, dbParam, xmlhttp, myObj, x, txt = "";
+                obj = {table: "customers", limit: 20};
+                dbParam = JSON.stringify(obj);
+                xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        myObj = JSON.parse(this.responseText);
+                        console.log(myObj);
+                        var date = myObj.message;
+                        console.log(date);
+                        if (myObj.status.toString() == "Error") {
+                            document.getElementById("demo").innerHTML = myObj.message.auth;
+                        } else {
+                            console.log(myObj.message);
+                            txt += ' <table id="example" class="table table-striped table-bordered"  style="width:100%">';
+                            txt += '<thead> <tr> <th>Category</th> <th>Position</th> <th>Title</th> <th>Completed</th> </tr> </thead>';
+                            for (x in date) {
+                                txt += "<tr><td>" + date[x].id + "</td>";
+                                txt += "<td>" + date[x].name + "</td>";
+                                txt += "<td>" + date[x].username + "</td>";
+                                txt += "<td>" + date[x].email + "</td></tr>";
+                            }
+                            txt += "</table>"
+                            document.getElementById("demo").innerHTML = txt;
+                            $('#example').DataTable({
+                                dom: 'Bfrtip',
+                                buttons: [
+                                    'copy', 'csv', 'excel', 'pdf'
+                                ]
+                            });
+                        }
+                    } else {
+                        document.getElementById("demo").innerHTML = "Error de conexion";
+                    }
+                };
+
+                xmlhttp.open("GET", "http://localhost/MFG-RockJS/?jwt=" + jwt.toLocaleString(), true);
+                xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xmlhttp.send("jwt=" + dbParam);
+
+
+            </script>
+        </div>
+
+    </body>
+</html>

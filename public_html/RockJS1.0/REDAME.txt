@@ -1,0 +1,44 @@
+    /*
+    *--------------------------------------------------------------------------
+    * RockJS Framework By Focus On Services 2017 
+    *--------------------------------------------------------------------------
+    *@copyright (c) 2017, RockJS Framework by Focus On Serivices
+    *@version 1.0
+    *@requires OpenEdge 102b or 91d
+    *@author RockJS Framework by Focus On Serivices
+    *@license http://focusonservices.com/rockjs FOCUS ON SERVICES
+    *@throws Windows Server Version
+    *--------------------------------------------------------------------------
+    * Como implementar RockJS Framework en sus Proyectos Web
+	* 
+	* Prerequicitos:
+	* 	Servidor Apache Ver: 2.4 o superior
+	*	PHP Ver: 5 o superior
+	*	Progress 9 o superior
+	* 
+	* Pasos: Configurar las variables de ambiente del archivo RockJSconf.php
+	*--------------------------------------------------------------------------
+	* 1: Default Database Progress Connection
+	*--------------------------------------------------------------------------
+	* Progress config
+	* $DLC: Ubicacion instalacion de la aplicacion _progress.exe  
+	* Ejemplo: C:\path\progress\bin
+        *--------------------------------------------------------------------------
+        * Default Database Progress Connection =>RockJSConf.php<=
+        *--------------------------------------------------------------------------
+        * Progress config setings:
+        * $DVM: Develop Mode  * Param bolean: true/active false/inactive
+        * $DLC: Path progress * Param string: Ubicacion de la carpeta bin Progress 
+        * $PATHPROG: Path WRK * Param string: Ubicacion del repositorio de Programas .P y de la DB
+        * $PROCGI: Path PF    *Ubicacion del archivo .pf 
+	*--------------------------------------------------------------------------
+	* 2: Defina la URL
+	*--------------------------------------------------------------------------
+	* Ejemplo: http://localhost/RockJS_1.0/?p=myPrograma
+	*
+	*--------------------------------------------------------------------------
+	* Disfrute de la tecnologia RockJS Framework
+	*--------------------------------------------------------------------------
+	* 
+	*
+    */
