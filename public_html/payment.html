@@ -27,60 +27,7 @@
         <link rel="stylesheet" href="asset/css/buttons.dataTables.min.css">
         <!-- Draggable personalite CSS -->
         <link rel="stylesheet" href="asset/draggable-ui/gridstack.css"/>
-        <style>
-            body {
-                position: relative;
-                background-image: url(asset/images/3.jpg);
-                background-size: cover;
-                background-attachment: fixed;
-                padding: 0px 0;
-            }
-            .card {
-                position: relative;
-                display: -webkit-box;
-                display: -ms-flexbox;
-                display: flex;
-                -webkit-box-orient: vertical;
-                -webkit-box-direction: normal;
-                -ms-flex-direction: column;
-                flex-direction: column;
-                min-width: 0;
-                word-wrap: break-word;
-                background-color: #ffffff8c;
-                background-clip: border-box;
-                border: 1px solid rgba(0,0,0,.125);
-                border-radius: .25rem;
-            }
-            .table-primary, .table-primary>td, .table-primary>th {
-                background-color: #b8daff82;
-            }
-            .sidenav {
-                height: 100%;
-                width: 0;
-                position: fixed;
-                z-index: 1;
-                top: 0;
-                left: 0;
-                background-color: #00568938;
-                overflow-x: hidden;
-                transition: 0.5s;
-                padding-top: 60px;
-            }
-            .bg-light {
-                background-color: #f8f9fa8c!important;
-            }
-            .container-fluid {
-                width: 100%;
-                margin-right: auto;
-                margin-left: auto;
-                padding-right: 0px;
-                padding-left: 0px;
-            }
-            .text-success {
-                color: #00c9d0!important;
-            }
-
-        </style>
+        <link rel="stylesheet" href="asset/css/app.css"/>
     </head>
     <body ng-controller="FirstController"> 
         <div class="loader"></div>
@@ -114,6 +61,7 @@
                         <div class="card-header">
                             <div class="d-flex justify-content-between align-items-end">
                                 <h4 class="text-light">Pagos</h4>
+                                <a href="detail.html"><button class="btn btn-outline-info"><i class="pe-7s-back"></i> Cancel</button></a>
                             </div>
                         </div>
                         <div class="card-body" ng-repeat="cliente in posts">
@@ -175,12 +123,12 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col"><center>1</center></div>
-                                                <div class="col">$500</div>
+                                                <div class="col">$ 4440</div>
                                             </div>
                                             <hr>
                                             <div class="row">
                                                 <div class="col"><strong>Total</strong></div>
-                                                <div class="col">$500</div>
+                                                <div class="col">$ 4440</div>
                                             </div>
                                         </div>
                                     </div>
