@@ -85,10 +85,10 @@ var app= angular.module('MyFirstApp',[])
 function defineURL(renglon) {
 	var URL="";
 	if(renglon==null){
-		URL="php/getUsuario.php?Navigate=ultimo&&idcliente=10";
+		URL="http://"+host+"/Autos2BE/php/getUsuario.php?Navigate=ultimo&&idcliente=10";
 		return URL;
 	}else{
-		URL="php/getUsuario.php?Navigate=ultimo&&idcliente=10";
+		URL="http://"+host+"/Autos2BE/php/getUsuario.php?Navigate=ultimo&&idcliente=10";
 		return URL;
 	}
 }

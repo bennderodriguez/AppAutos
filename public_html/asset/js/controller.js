@@ -6,7 +6,7 @@ angular.module('MyFirstApp',[])
 		$scope.newPost= {};
 		$accion="Buscar";
 		$idUsuario="10";
-		$http.get("php/getUsuario.php?Navigate=Buscar&&idcliente=10")
+		$http.get("http://"+host+"/Autos2BE/php/getUsuario.php?Navigate=Buscar&&idcliente=10")
 		.success(function(data)
 		{
 			console.log(data);

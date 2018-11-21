@@ -21,7 +21,7 @@ function submitForm() {
 
     $.ajax({
         type: "POST",
-        url: "php/login.php",
+        url: "http://"+host+"/Autos2BE/php/login.php",
         data: "email=" + email + "&pass=" + pass,
         success: function (text) {
             console.log(text);

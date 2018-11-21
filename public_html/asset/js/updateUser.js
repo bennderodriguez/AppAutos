@@ -33,7 +33,7 @@ function submitForm() {
 
     $.ajax({
         type: "POST",
-        url: "php/updateDataUser.php",
+        url: "http://"+host+"/Autos2BE/php/updateDataUser.php",
         data: "idCliente=" + idCliente + "&nombre=" + nombre + "&email=" + email + "&phone=" + phone
                 + "&idContrato=" + idContrato + "&FechaApertura=" + FechaApertura
                 + "&Vehiculo=" + Vehiculo + "&Navigate=" + Navigate,

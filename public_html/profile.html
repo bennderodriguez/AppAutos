@@ -26,7 +26,61 @@
         <link rel="stylesheet" href="asset/css/buttons.dataTables.min.css">
         <!-- Draggable personalite CSS -->
         <link rel="stylesheet" href="asset/draggable-ui/gridstack.css"/>
-        <link rel="stylesheet" href="asset/css/app.css"/>
+         <script src="asset/js/aaref.js"></script>
+                 <style>
+            body {
+                position: relative;
+               background-image: url(asset/images/3.jpg) !important;
+                background-size: cover;
+                background-repeat:no-repeat;
+                background-attachment: fixed;
+                padding: 0px 0;
+            }
+            .card {
+                position: relative;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                min-width: 0;
+                word-wrap: break-word;
+                background-color: #ffffff8c !important;
+                background-clip: border-box;
+                border: 1px solid rgba(0,0,0,.125);
+                border-radius: .25rem;
+            }
+            .table-primary, .table-primary>td, .table-primary>th {
+                background-color: #b8daff82 !important;
+            }
+            .sidenav {
+                height: 100%;
+                width: 0;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                left: 0;
+                background-color: #00568938 !important;
+                overflow-x: hidden;
+                transition: 0.5s;
+                padding-top: 60px;
+            }
+            .bg-light {
+                background-color: #f8f9fa8c !important;
+            }
+            .container-fluid {
+                width: 100%;
+                margin-right: auto;
+                margin-left: auto;
+                padding-right: 0px;
+                padding-left: 0px;
+            }
+            .text-success {
+                color: #00c9d0!important;
+            }
+        </style>
     </head>
     <body ng-controller="FirstController"> 
         <div class="loader"></div>
@@ -40,7 +94,7 @@
             <div class=" navbar bg-light fixed-top" style="color: #005689 !important; padding-bottom: 0; padding-top: 0;">
                 <div class="float-left mn-left" ng-repeat="cliente in posts">
                     <span class="menuicon" onclick="openNav()" style="text-align: center; font-size: 30px; padding-left: 15px;">☰</span>
-                    <a class="navbar-brand" href="#">&nbsp&nbsp&nbsp<img src="asset/images/sniglet.png" width="10%" alt="RockJS Framework" style="vertical-align: baseline !important;"></a>
+                    <a class="navbar-brand" href="#">&nbsp&nbsp&nbsp<img src="asset/images/Ford-Mexico.png" width="25%" alt="RockJS Framework" style="vertical-align: baseline !important;"></a>
                     <!--a class="navbar-brand" href="#">{{cliente.Nombre}}</a-->
                     <small style="font-size: 10px"class="navbar-brand">{{cliente.Nombre}}</small>
                 </div>

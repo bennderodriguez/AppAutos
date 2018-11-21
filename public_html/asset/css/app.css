@@ -2,6 +2,7 @@ body {
     position: relative;
     background-image: url(../images/3.jpg) !important;
     background-size: cover;
+    background-repeat:no-repeat;
     background-attachment: fixed;
     padding: 0px 0;
 }
@@ -16,13 +17,13 @@ body {
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    background-color: #ffffff8c;
+    background-color: #ffffff8c !important;
     background-clip: border-box;
     border: 1px solid rgba(0,0,0,.125);
     border-radius: .25rem;
 }
 .table-primary, .table-primary>td, .table-primary>th {
-    background-color: #b8daff82;
+    background-color: #b8daff82 !important;
 }
 .sidenav {
     height: 100%;
@@ -31,13 +32,13 @@ body {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #00568938;
+    background-color: #00568938 !important;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
 }
 .bg-light {
-    background-color: #f8f9fa8c!important;
+    background-color: #f8f9fa8c !important;
 }
 .container-fluid {
     width: 100%;
